@@ -1,0 +1,6 @@
+@SteelBird.Presentation.API_HostAddress = http://localhost:5183
+
+GET {{SteelBird.Presentation.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
