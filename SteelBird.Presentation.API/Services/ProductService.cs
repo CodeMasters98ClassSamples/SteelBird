@@ -1,31 +1,44 @@
-﻿using SteelBird.Presentation.API.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using SteelBird.Presentation.API.Contracts;
+using SteelBird.Presentation.API.Database;
 using SteelBird.Presentation.API.Entities;
 
 namespace SteelBird.Presentation.API.Service;
 
 public class ProductService : IBaseService<Product>
 {
-    public List<Product> products = new List<Product>();
+
+    private readonly CoreDatabaseContext _context;
+    public ProductService(CoreDatabaseContext context)
+    {
+        _context = context;
+    }
 
     public bool Add(Product item)
     {
-        products.Add(item);
+        Console.WriteLine(_context.Entry(item).State);
+        _context.Set<Product>().Add(item);
+        Console.WriteLine(_context.Entry(item).State);
+        _context.SaveChanges();
+        Console.WriteLine(_context.Entry(item).State);
         return true;
     }
 
     public bool Delete(int id)
     {
-        throw new NotImplementedException();
+        //_context.Set<Product>().Remove(item);
+        return false;
     }
 
     public List<Product> GetAll()
     {
+        var products = _context.Set<Product>().ToList();
         return products;
     }
 
     public Product GetById(int id)
     {
-        return products.FirstOrDefault(x => x.Id == id);
+        return _context.Set<Product>().Where(x => x.Id == id).FirstOrDefault();
     }
 
     public bool Update(Product item)

@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using SteelBird.Presentation.API.Contracts;
+using SteelBird.Presentation.API.Database;
 using SteelBird.Presentation.API.Entities;
 using SteelBird.Presentation.API.Service;
 using SteelBird.Presentation.API.Services;
@@ -12,6 +14,15 @@ builder.Services.AddScoped<IBaseService<Product>, ProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString =
+    builder.Configuration.GetConnectionString("CoreDatabaseContext")
+        ?? throw new InvalidOperationException("Connection string"
+        + "'DefaultConnection' not found.");
+
+builder.Services.AddDbContext<CoreDatabaseContext>(options =>
+    options.UseSqlServer(connectionString));
+
 
 var app = builder.Build();
 
