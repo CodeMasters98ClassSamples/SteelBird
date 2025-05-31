@@ -1,7 +1,11 @@
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SteelBird.Presentation.API.Contracts;
 using SteelBird.Presentation.API.Database;
 using SteelBird.Presentation.API.Entities;
+using SteelBird.Presentation.API.Profiles;
 using SteelBird.Presentation.API.Service;
 using SteelBird.Presentation.API.Services;
 
@@ -14,6 +18,25 @@ builder.Services.AddScoped<IBaseService<Product>, ProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddFluentValidation();
+
+builder.Services.AddHealthChecks();
+
+
+builder.Services.AddAutoMapper(typeof(ProductProfile));
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0); // Default to v1.0
+    options.AssumeDefaultVersionWhenUnspecified = true; // Assume default if not specified
+    options.ReportApiVersions = true; // Return headers "api-supported-versions" and "api-deprecated-versions"
+    options.ApiVersionReader = ApiVersionReader.Combine(
+    new QueryStringApiVersionReader("api-version"), // ?api-version=1.0
+    new HeaderApiVersionReader("X-Version"), // Custom header
+    new MediaTypeApiVersionReader("ver") // Accept: application/json;ver=1.0
+    );
+});
 
 var connectionString =
     builder.Configuration.GetConnectionString("CoreDatabaseContext")

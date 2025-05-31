@@ -1,7 +1,28 @@
-﻿namespace SteelBird.Presentation.API.Dtos.Product
+﻿using System.Runtime.CompilerServices;
+using DomainEntities = SteelBird.Presentation.API.Entities;
+
+namespace SteelBird.Presentation.API.Dtos.Product;
+
+public record AddProduct /*: IValidatableObject*/
 {
-    public record AddProduct
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    //public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    //{
+    //    if (string.IsNullOrEmpty(Name))
+    //    {
+    //        return new ValidateOptionsResult()
+    //        {
+
+    //        };
+    //    }
+    //}
+}
+
+public static class AddProductExtension
+{
+    public static DomainEntities.Product MapProduct(this AddProduct addProdcut)
     {
-        public string Name { get; set; }
+        return new DomainEntities.Product();
     }
 }
