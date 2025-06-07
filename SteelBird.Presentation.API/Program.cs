@@ -1,20 +1,13 @@
-using FluentValidation.AspNetCore;
+
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SteelBird.Presentation.API.Contracts;
-using SteelBird.Presentation.API.Database;
-using SteelBird.Presentation.API.Entities;
-using SteelBird.Presentation.API.Profiles;
-using SteelBird.Presentation.API.Service;
-using SteelBird.Presentation.API.Services;
+using SteelBird.Infrastructure;
+using SteelBird.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
-builder.Services.AddScoped<IBaseService<Product>, ProductService>();
-//builder.Services.AddScoped<IBaseService<Product>, MockProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -27,13 +20,6 @@ builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 }));
 
 builder.Services.AddHealthChecks();
-
-builder.Services.AddFluentValidation();
-
-builder.Services.AddHealthChecks();
-
-
-builder.Services.AddAutoMapper(typeof(ProductProfile));
 
 builder.Services.AddApiVersioning(options =>
 {
@@ -52,8 +38,9 @@ var connectionString =
         ?? throw new InvalidOperationException("Connection string"
         + "'DefaultConnection' not found.");
 
-builder.Services.AddDbContext<CoreDatabaseContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services
+    .RegisterApplicationLayer()
+    .RegisterInfrastructureLayer(connectionString: connectionString);
 
 
 var app = builder.Build();

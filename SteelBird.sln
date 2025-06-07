@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Presentation.API", "SteelBird.Presentation.API\SteelBird.Presentation.API.csproj", "{4ED82D20-D6B9-446A-977E-6718BF9A76FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Presentation.API", "SteelBird.Presentation.API\SteelBird.Presentation.API.csproj", "{4ED82D20-D6B9-446A-977E-6718BF9A76FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Domain", "SteelBird.Domain\SteelBird.Domain.csproj", "{837A657F-67D7-4E3A-BF0B-8639DA8941B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Application", "SteelBird.Application\SteelBird.Application.csproj", "{506090C5-4629-49E7-9C20-53DDA1399596}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Infrastructure", "SteelBird.Infrastructure\SteelBird.Infrastructure.csproj", "{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{4ED82D20-D6B9-446A-977E-6718BF9A76FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ED82D20-D6B9-446A-977E-6718BF9A76FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ED82D20-D6B9-446A-977E-6718BF9A76FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837A657F-67D7-4E3A-BF0B-8639DA8941B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837A657F-67D7-4E3A-BF0B-8639DA8941B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837A657F-67D7-4E3A-BF0B-8639DA8941B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837A657F-67D7-4E3A-BF0B-8639DA8941B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{506090C5-4629-49E7-9C20-53DDA1399596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{506090C5-4629-49E7-9C20-53DDA1399596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{506090C5-4629-49E7-9C20-53DDA1399596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{506090C5-4629-49E7-9C20-53DDA1399596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

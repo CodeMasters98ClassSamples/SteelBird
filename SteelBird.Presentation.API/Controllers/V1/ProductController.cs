@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SteelBird.Application.Dtos.Product;
+using SteelBird.Domain.Entities;
 using SteelBird.Presentation.API.Contracts;
-using SteelBird.Presentation.API.Dtos.Product;
-using SteelBird.Presentation.API.Entities;
 using SteelBird.Presentation.API.Extensions;
 using SteelBird.Presentation.API.Wrappers;
 
@@ -23,10 +23,14 @@ public class ProductController : GeneralController
 
     [MapToApiVersion("1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpGet]
     public async Task<IActionResult> GetById([FromQuery] int id)
     {
         var product = _productService.GetById(id);
+        if (product is null)
+            return NotFound();
+
         return Ok(product);
     }
 
@@ -47,20 +51,9 @@ public class ProductController : GeneralController
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] AddProduct product)
     {
-        //1. Manully Mapping 
-        //Product oProduct = new Product()
-        //{
-        //    Price = product.Price,
-        //    Name = product.Name,
-        //};
-
-        //2. Pacckage for Map Class to class 
         var oProduct = _mapper.Map<AddProduct, Product>(product);
-
-        //3. Extyension Method
         var result = _productService.Add(oProduct);
-
-        return Ok(result);
+        return Created();
     }
 
     [ProducesResponseType(StatusCodes.Status200OK)]

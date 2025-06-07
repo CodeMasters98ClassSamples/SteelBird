@@ -8,9 +8,9 @@ public static class ResultExtension
 {
     public static ObjectResult ToObjectResult(this Result result, bool withEnglishMessage)
     {
-        if (result.Status is not HttpStatusCode.OK)
-            //return new ObjectResult(result.ToProblemDetails()) { StatusCode = (int)result.Status };
-            return null;
+        //if (result.Status is not HttpStatusCode.OK)
+        //    //return new ObjectResult(result.ToProblemDetails()) { StatusCode = (int)result.Status };
+        //    return null;
 
         if (result.IsSuccess)
         {
