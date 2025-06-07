@@ -26,6 +26,7 @@ builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
            .AllowAnyHeader();
 }));
 
+builder.Services.AddHealthChecks();
 
 builder.Services.AddFluentValidation();
 
@@ -69,6 +70,8 @@ app.MapControllers();
 app.UseHttpsRedirection();
 
 app.UseCors();
+
+app.MapHealthChecks("/healthz");
 
 app.UseAuthentication();
 
