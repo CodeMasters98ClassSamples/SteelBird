@@ -12,7 +12,7 @@ public static class InfrastructureLayer
     public static IServiceCollection RegisterInfrastructureLayer(this IServiceCollection services,string connectionString)
     {
         services.AddDbContext<CoreDatabaseContext>(options =>
-            options.UseSqlServer(connectionString));
+            options.UseSqlServer(connectionString)).AddHealthChecks();
 
         services.AddScoped<IBaseService<Product>, ProductService>();
         return services;

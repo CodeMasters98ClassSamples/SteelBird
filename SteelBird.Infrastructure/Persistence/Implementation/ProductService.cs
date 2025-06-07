@@ -32,15 +32,11 @@ public class ProductService : IBaseService<Product>
     public List<Product> GetAll()
     {
         var products = _context.Set<Product>().ToList();
-        //Api Call Service
-
         return products;
     }
 
     public Product GetById(int id)
     {
-
-
         return _context.Set<Product>().Where(x => x.Id == id).FirstOrDefault();
     }
 
