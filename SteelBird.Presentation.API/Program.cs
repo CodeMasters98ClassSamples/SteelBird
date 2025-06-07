@@ -19,6 +19,14 @@ builder.Services.AddScoped<IBaseService<Product>, ProductService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+{
+    builder.WithOrigins()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+
+
 builder.Services.AddFluentValidation();
 
 builder.Services.AddHealthChecks();
