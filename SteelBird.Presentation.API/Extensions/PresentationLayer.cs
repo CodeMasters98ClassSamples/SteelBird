@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SteelBird.Domain.Entities;
-using SteelBird.Infrastructure.Persistence.Contexts;
-using SteelBird.Presentation.API.Contracts;
-using SteelBird.Presentation.API.Service;
 
 namespace SteelBird.Presentation.API.Extensions;
 

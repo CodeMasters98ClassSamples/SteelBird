@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SteelBird.Application\SteelBird.Application.csproj" />
+    <ProjectReference Include="..\SteelBird.Infrastructure.Identity\SteelBird.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\SteelBird.Infrastructure\SteelBird.Infrastructure.csproj" />
   </ItemGroup>
 

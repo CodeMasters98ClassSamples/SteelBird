@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
-namespace SteelBird.Presentation.API.Wrappers;
+namespace SteelBird.Application.Wrappers;
 
 public record Error(string Code, string Message)
 {
@@ -42,6 +42,7 @@ public class Result
     //With out Generic mode
     public static Result Success() => new(true, Error.None);
     public static Result Failure(Error error) => new(false, error);
+    public static Result Failure() => new(false, new Error("500","Default Error"));
 
     //Generic Mode
     public static Result<T> Success<T>(T value) => new(value, true, Error.None);

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SteelBird.Presentation.API.Wrappers;
-using System.Net;
+using SteelBird.Application.Wrappers;
 
 namespace SteelBird.Presentation.API.Extensions;
 

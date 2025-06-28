@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SteelBird.Infrastructure;
 using SteelBird.Application;
 using SteelBird.Presentation.API.Extensions;
+using SteelBird.Infrastructure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ var connectionString =
 builder.Services
     .RegisterPresentationLayer()
     .RegisterApplicationLayer()
+    .RegisterInfrastructureIdentityServices(builder.Configuration)
     .RegisterInfrastructureLayer(connectionString: connectionString)
     .AddVersioning();
 

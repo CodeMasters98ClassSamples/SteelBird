@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SteelBird.Application.Dtos.Product;
+using SteelBird.Application.Wrappers;
 using SteelBird.Domain.Entities;
 using SteelBird.Presentation.API.Contracts;
 using SteelBird.Presentation.API.Extensions;
-using SteelBird.Presentation.API.Wrappers;
 
 namespace SteelBird.Presentation.API.Controllers.V1;
 
@@ -47,6 +48,7 @@ public class ProductController : GeneralController
         //return Ok(products);
     }
 
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] AddProduct product)
@@ -56,6 +58,7 @@ public class ProductController : GeneralController
         return Created();
     }
 
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] UpdateProduct product)
@@ -68,6 +71,7 @@ public class ProductController : GeneralController
         return Ok(result);
     }
 
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [HttpDelete]
     public async Task<IActionResult> Delete([FromRoute] int id)

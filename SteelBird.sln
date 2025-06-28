@@ -5,11 +5,15 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Presentation.API", "SteelBird.Presentation.API\SteelBird.Presentation.API.csproj", "{4ED82D20-D6B9-446A-977E-6718BF9A76FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Domain", "SteelBird.Domain\SteelBird.Domain.csproj", "{837A657F-67D7-4E3A-BF0B-8639DA8941B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Domain", "SteelBird.Domain\SteelBird.Domain.csproj", "{837A657F-67D7-4E3A-BF0B-8639DA8941B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Application", "SteelBird.Application\SteelBird.Application.csproj", "{506090C5-4629-49E7-9C20-53DDA1399596}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Application", "SteelBird.Application\SteelBird.Application.csproj", "{506090C5-4629-49E7-9C20-53DDA1399596}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Infrastructure", "SteelBird.Infrastructure\SteelBird.Infrastructure.csproj", "{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Infrastructure", "SteelBird.Infrastructure\SteelBird.Infrastructure.csproj", "{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Infrastructure.Identity", "SteelBird.Infrastructure.Identity\SteelBird.Infrastructure.Identity.csproj", "{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Shared", "SteelBird.Shared\SteelBird.Shared.csproj", "{81A6A329-CB01-47DF-9D90-39EAB15B53EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A6A329-CB01-47DF-9D90-39EAB15B53EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A6A329-CB01-47DF-9D90-39EAB15B53EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A6A329-CB01-47DF-9D90-39EAB15B53EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A6A329-CB01-47DF-9D90-39EAB15B53EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
