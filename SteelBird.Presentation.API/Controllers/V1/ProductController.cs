@@ -16,10 +16,15 @@ public class ProductController : GeneralController
 
     IBaseService<Product> _productService;
     private readonly IMapper _mapper;
-    public ProductController(IBaseService<Product> productService, IMapper mapper)
+    private readonly ILogger<ProductController> _logger;
+    public ProductController(
+        ILogger<ProductController> logger,
+        IBaseService<Product> productService, 
+        IMapper mapper)
     {
         _mapper = mapper;
         _productService = productService;
+        _logger = logger;
     }
 
     [MapToApiVersion("1")]
@@ -30,7 +35,11 @@ public class ProductController : GeneralController
     {
         var product = _productService.GetById(id);
         if (product is null)
+        {
+            _logger.LogError("Can not find anything!");
             return NotFound();
+        }
+            
 
         return Ok(product);
     }
@@ -40,12 +49,7 @@ public class ProductController : GeneralController
     public async Task<IActionResult> GetAll()
     {
         var products = _productService.GetAll();
-        //if (products is null)
-        //    return Result.Failure(error: Error.NullValue).WithMessage("");
-
-        //return Result.Success().ToObjectResult(false);
         return Result.Success(products).ToObjectResult(false);
-        //return Ok(products);
     }
 
     [Authorize]

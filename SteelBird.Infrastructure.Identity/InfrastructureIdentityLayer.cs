@@ -18,14 +18,17 @@ namespace SteelBird.Infrastructure.Identity;
 
 public static class InfrastructureIdentityLayer
 {
-    public static IServiceCollection RegisterInfrastructureIdentityServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection RegisterInfrastructureIdentityServices(this IServiceCollection services, IConfiguration configuration,bool useInMemoryDatabase)
     {
-
-        services.AddDbContext<IdentityContext>(options =>
-                options.UseSqlServer(
-                configuration.GetConnectionString("IdentityDbContext"),
-                    b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
-
+        if (useInMemoryDatabase)
+            services.AddDbContext<IdentityContext>(options => options.UseInMemoryDatabase("IdentityAppDbContext"));
+        else
+        {
+            services.AddDbContext<IdentityContext>(options =>
+                            options.UseSqlServer(
+                            configuration.GetConnectionString("IdentityDbContext"),
+                                b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
+        }
         services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<IdentityContext>().AddDefaultTokenProviders();
         #region Services
         services.AddTransient<IAccountService, AccountService>();

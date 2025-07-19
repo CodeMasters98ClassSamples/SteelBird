@@ -4,13 +4,8 @@ using SteelBird.Application.Dtos.Authentication;
 
 namespace SteelBird.Presentation.API.Controllers.V1;
 
-public class AuthenticationController : GeneralController
+public class AuthenticationController(IAccountService _accountService) : GeneralController
 {
-    private readonly IAccountService _accountService;
-    public AuthenticationController(IAccountService accountService)
-    {
-        _accountService = accountService;
-    }
 
     [HttpPost]
     public async Task<IActionResult> Login(LoginRequestDto dto, CancellationToken ct = default)

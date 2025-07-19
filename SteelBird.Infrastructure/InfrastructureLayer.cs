@@ -9,11 +9,15 @@ namespace SteelBird.Infrastructure;
 
 public static class InfrastructureLayer
 {
-    public static IServiceCollection RegisterInfrastructureLayer(this IServiceCollection services,string connectionString)
+    public static IServiceCollection RegisterInfrastructureLayer(this IServiceCollection services,string connectionString,bool useInMemoryDatabase)
     {
-        services.AddDbContext<CoreDatabaseContext>(options =>
-            options.UseSqlServer(connectionString)).AddHealthChecks();
-
+        if (useInMemoryDatabase)
+            services.AddDbContext<CoreDatabaseContext>(options => options.UseInMemoryDatabase("AppDbContext"));
+        else
+        {
+            services.AddDbContext<CoreDatabaseContext>(options => options.UseSqlServer(connectionString)).AddHealthChecks();
+        }
+        
         services.AddScoped<IBaseService<Product>, ProductService>();
         return services;
     }
