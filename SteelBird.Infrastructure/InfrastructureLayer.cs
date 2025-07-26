@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SteelBird.Application.Contracts;
 using SteelBird.Domain.Entities;
 using SteelBird.Infrastructure.Persistence.Contexts;
 using SteelBird.Presentation.API.Contracts;
@@ -12,10 +13,10 @@ public static class InfrastructureLayer
     public static IServiceCollection RegisterInfrastructureLayer(this IServiceCollection services,string connectionString,bool useInMemoryDatabase)
     {
         if (useInMemoryDatabase)
-            services.AddDbContext<CoreDatabaseContext>(options => options.UseInMemoryDatabase("AppDbContext"));
+            services.AddDbContext<IAppDbContext, CoreDatabaseContext>(options => options.UseInMemoryDatabase("AppDbContext"));
         else
         {
-            services.AddDbContext<CoreDatabaseContext>(options => options.UseSqlServer(connectionString)).AddHealthChecks();
+            services.AddDbContext<IAppDbContext, CoreDatabaseContext>(options => options.UseSqlServer(connectionString)).AddHealthChecks();
         }
         
         services.AddScoped<IBaseService<Product>, ProductService>();
