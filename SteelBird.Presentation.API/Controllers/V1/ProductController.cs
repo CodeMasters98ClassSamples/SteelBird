@@ -39,9 +39,12 @@ public class ProductController : GeneralController
             _logger.LogError("Can not find anything!");
             return NotFound();
         }
-            
-
-        return Ok(product);
+        var result = new
+        {
+            Name = product.Name,
+            Id = product.Id,
+        };
+        return Ok(result);
     }
 
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -58,6 +61,7 @@ public class ProductController : GeneralController
     public async Task<IActionResult> Add([FromBody] AddProduct product)
     {
         var oProduct = _mapper.Map<AddProduct, Product>(product);
+        oProduct.Activate();
         var result = _productService.Add(oProduct);
         return Created();
     }

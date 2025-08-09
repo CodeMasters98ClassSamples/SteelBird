@@ -11,4 +11,13 @@ public class ApplicationUser : IdentityUser
     //{
     //    return this.RefreshTokens?.Find(x => x.Token == token) != null;
     //}
+
+    public bool Regiser(string nationalCode, int age)
+    {
+        if (string.IsNullOrEmpty(nationalCode) || age < 18 )
+            throw new Exception();
+
+        return false;
+    }
+
 }

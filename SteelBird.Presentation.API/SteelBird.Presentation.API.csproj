@@ -7,13 +7,14 @@
     <InvariantGlobalization>false</InvariantGlobalization>
     <UserSecretsId>56c7a2e6-4b65-4295-a814-43939d728fdf</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks" Version="1.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
-	  <PackageReference Include="Serilog" Version="4.2.0" />
+    <PackageReference Include="AspNetCore.HealthChecks" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	  <PackageReference Include="Serilog" />
 	  <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 	  <PackageReference Include="Serilog.Sinks.AwsCloudWatch" Version="4.3.37" />
 	  <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="8.2.0" />
