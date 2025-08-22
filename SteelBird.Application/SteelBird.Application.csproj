@@ -21,8 +21,6 @@
 
   <ItemGroup>
     <Folder Include="UseCases\Authenctiaction\" />
-    <Folder Include="UseCases\Order\Queries\" />
-    <Folder Include="UseCases\Product\" />
   </ItemGroup>
 
 </Project>

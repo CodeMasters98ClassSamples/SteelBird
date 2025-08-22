@@ -17,6 +17,7 @@ public class IdentityContext : IdentityDbContext<ApplicationUser>
         builder.Entity<ApplicationUser>(entity =>
         {
             entity.ToTable(name: "User");
+            entity.OwnsOne(x => x.Address);
         });
 
     }

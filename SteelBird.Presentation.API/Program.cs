@@ -5,11 +5,8 @@ using SteelBird.Presentation.API.Extensions;
 using SteelBird.Infrastructure.Identity;
 using Serilog;
 using SteelBird.Infrastructure.Persistence.Contexts;
-using SteelBird.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using SteelBird.Infrastructure.Identity.Models;
-using Azure.Core;
-using Amazon.Runtime.Internal;
 using SteelBird.Domain.Enums;
 using Microsoft.OpenApi.Models;
 
@@ -20,49 +17,23 @@ if (string.IsNullOrEmpty(environment))
 {
     //Log
 }
+var connectionString =
+    builder.Configuration.GetConnectionString("CoreDatabaseContext")
+        ?? throw new InvalidOperationException("Connection string"
+        + "'DefaultConnection' not found.");
 
 var useInMemoryDatabase = builder.Configuration.GetValue<bool>("UseInMemoryDatabase");
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "Enter 'Bearer' followed by a space and your token.\nExample: Bearer eyJhbGciOiJIUzI1..."
-    });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-            },
-            Array.Empty<string>()
-        }
-    });
-});
-
-var connectionString =
-    builder.Configuration.GetConnectionString("CoreDatabaseContext")
-        ?? throw new InvalidOperationException("Connection string"
-        + "'DefaultConnection' not found.");
-
 builder.Services
     .RegisterPresentationLayer()
     .RegisterApplicationLayer()
     .RegisterInfrastructureIdentityServices(builder.Configuration, useInMemoryDatabase)
     .RegisterInfrastructureLayer(connectionString: connectionString, useInMemoryDatabase)
-    .AddVersioning();
+    .AddVersioning()
+    .AddMySwagger();
 
 if (builder.Environment.IsProduction())
 {
@@ -115,14 +86,12 @@ if (app.Environment.IsDevelopment())
 
         //Product Manage
         var context = scope.ServiceProvider.GetRequiredService<CoreDatabaseContext>();
-
-        context.Products.AddRange(
-            new Product { Id = 1, Name = "Notebook", Price = 5.99m,Barcode = "1", Description = "1" },
-            new Product { Id = 2, Name = "Pen", Price = 1.49m, Barcode = "2",Description = "2" }
-        );
-        context.SaveChanges();
+        //context.Products.AddRange(
+        //    new Product { Id = 1, Name = "Notebook",Barcode = "1", Description = "1", Price = new Money(amount: 1000, currency: "RIAL") },
+        //    new Product { Id = 2, Name = "Pen", Barcode = "2",Description = "2", Price = new Money(amount: 1000, currency: "RIAL") }
+        //);
+        //context.SaveChanges();
     }
 }
-
 
 app.Run();

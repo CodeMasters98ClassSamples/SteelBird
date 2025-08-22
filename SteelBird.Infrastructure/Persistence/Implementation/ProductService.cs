@@ -33,7 +33,6 @@ public class ProductService : IBaseService<Product>
     {
         var products = _context.Set<Product>()
             .OrderByDescending(x => x.UpdateAt)
-            .Where(x => x.Price > 5000)
             .Skip(10)
             .Take(10)
             .ToList();

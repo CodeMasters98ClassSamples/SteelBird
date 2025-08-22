@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Application", "St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Infrastructure", "SteelBird.Infrastructure\SteelBird.Infrastructure.csproj", "{DA1AC7C2-0D4C-46AE-86BE-8644CC7A1ED1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Infrastructure.Identity", "SteelBird.Infrastructure.Identity\SteelBird.Infrastructure.Identity.csproj", "{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Infrastructure.Identity", "SteelBird.Infrastructure.Identity\SteelBird.Infrastructure.Identity.csproj", "{6C5F443E-4CB7-4BEC-872F-2FC98F4895C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteelBird.Shared", "SteelBird.Shared\SteelBird.Shared.csproj", "{81A6A329-CB01-47DF-9D90-39EAB15B53EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Shared", "SteelBird.Shared\SteelBird.Shared.csproj", "{81A6A329-CB01-47DF-9D90-39EAB15B53EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F89827D3-FBDC-4E04-8B75-7B124D87D813}"
 EndProject

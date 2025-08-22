@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using SteelBird.Infrastructure.Identity.ValueObjects;
 
 namespace SteelBird.Infrastructure.Identity.Models;
 
@@ -11,7 +12,7 @@ public class ApplicationUser : IdentityUser
     //{
     //    return this.RefreshTokens?.Find(x => x.Token == token) != null;
     //}
-
+    public Address Address { get; set; }
     public bool Regiser(string nationalCode, int age)
     {
         if (string.IsNullOrEmpty(nationalCode) || age < 18 )

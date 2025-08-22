@@ -14,7 +14,7 @@ public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand, Result<Do
 
     public async Task<Result<DomainEntity.Order>> Handle(AddOrderCommand request, CancellationToken cancellationToken)
     {
-        var order = new DomainEntity.Order() { Description = request.Description };
-        return Result.Success<DomainEntity.Order>(order);
+        //var order = new DomainEntity.Order() { Description = request.Description };
+        return Result.Success<DomainEntity.Order>(default);
     }
 }
