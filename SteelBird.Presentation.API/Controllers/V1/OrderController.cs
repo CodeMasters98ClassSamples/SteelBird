@@ -22,4 +22,11 @@ public class OrderController : GeneralController
     [HttpGet]
     public async Task<IActionResult> GetAll([FromQuery] GetOrdersQuery query, CancellationToken ct = default)
        => await SendAsync(query, ct);
+
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [HttpGet]
+    public async Task<IActionResult> GetTotalCount(CancellationToken ct = default)
+    {
+        return Ok(293);
+    }
 }

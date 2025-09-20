@@ -33,7 +33,7 @@ public class ProductController : GeneralController
     [HttpGet]
     public async Task<IActionResult> GetById([FromQuery] int id)
     {
-        var product = _productService.GetById(id);
+        Product product = _productService.GetById(id);
         if (product is null)
         {
             _logger.LogError("Can not find anything!");

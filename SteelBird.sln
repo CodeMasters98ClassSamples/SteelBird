@@ -27,6 +27,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Presentation.GraphQL", "SteelBird.Presentation.GraphQL\SteelBird.Presentation.GraphQL.csproj", "{B494E084-A7B0-46D6-ACE9-DC039E346DCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Presentation.RazorPages", "SteelBird.Presentation.RazorPages\SteelBird.Presentation.RazorPages.csproj", "{56784EDC-7075-4C64-ACB7-9DAEF2ADC589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Presentation.BlazorPages", "SteelBird.Presentation.BlazorPages\SteelBird.Presentation.BlazorPages.csproj", "{3E23B5BE-40AD-4687-BA68-48645220E65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelBird.Presnetation.ModelView", "SteelBird.Presnetation.ModelView\SteelBird.Presnetation.ModelView.csproj", "{9AF61262-BA26-45E3-AEC5-D950DE943F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteekBird.Infrastructure.ExtrenalServices", "SteekBird.Infrastructure.ExtrenalServices\SteekBird.Infrastructure.ExtrenalServices.csproj", "{FF16D6DE-11F0-40C8-AFD3-5C299BB3C56A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +73,22 @@ Global
 		{B494E084-A7B0-46D6-ACE9-DC039E346DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B494E084-A7B0-46D6-ACE9-DC039E346DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B494E084-A7B0-46D6-ACE9-DC039E346DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56784EDC-7075-4C64-ACB7-9DAEF2ADC589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56784EDC-7075-4C64-ACB7-9DAEF2ADC589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56784EDC-7075-4C64-ACB7-9DAEF2ADC589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56784EDC-7075-4C64-ACB7-9DAEF2ADC589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E23B5BE-40AD-4687-BA68-48645220E65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E23B5BE-40AD-4687-BA68-48645220E65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E23B5BE-40AD-4687-BA68-48645220E65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E23B5BE-40AD-4687-BA68-48645220E65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF61262-BA26-45E3-AEC5-D950DE943F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF61262-BA26-45E3-AEC5-D950DE943F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF61262-BA26-45E3-AEC5-D950DE943F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF61262-BA26-45E3-AEC5-D950DE943F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF16D6DE-11F0-40C8-AFD3-5C299BB3C56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF16D6DE-11F0-40C8-AFD3-5C299BB3C56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF16D6DE-11F0-40C8-AFD3-5C299BB3C56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF16D6DE-11F0-40C8-AFD3-5C299BB3C56A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +102,10 @@ Global
 		{81A6A329-CB01-47DF-9D90-39EAB15B53EF} = {4D657BB0-E9B1-450D-8684-DBB9432E9809}
 		{82130C94-9B4E-4AF2-BE56-BB5C0739EB95} = {F1F7B5A1-1598-4410-930D-0986521C5CF5}
 		{B494E084-A7B0-46D6-ACE9-DC039E346DCD} = {F1F7B5A1-1598-4410-930D-0986521C5CF5}
+		{56784EDC-7075-4C64-ACB7-9DAEF2ADC589} = {F1F7B5A1-1598-4410-930D-0986521C5CF5}
+		{3E23B5BE-40AD-4687-BA68-48645220E65C} = {F1F7B5A1-1598-4410-930D-0986521C5CF5}
+		{9AF61262-BA26-45E3-AEC5-D950DE943F72} = {F1F7B5A1-1598-4410-930D-0986521C5CF5}
+		{FF16D6DE-11F0-40C8-AFD3-5C299BB3C56A} = {215A177A-9DC7-4CCE-A94B-C1428AD1BE54}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B05D721A-CCE6-45AE-8837-4525681F1AA3}
